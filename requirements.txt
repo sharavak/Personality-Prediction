@@ -1,6 +1,6 @@
 flask==2.3.2
 requests
-dotenv
+python-dotenv
 scikit-learn
 pandas
 numpy
