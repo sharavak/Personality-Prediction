@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        let myVar = '{{ data }}'
+    </script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/success.css">
+    <title>Report</title>
+</head>
+
+<body>
+    <h3 style="text-align: center;">Predicted Personality
+        for {{data.replace("[",'').replace("]",'').replace('&#34','').split(",")[0]}}:
+        <strong>{{res.upper()}}</strong>
+    </h3>
+    <div class="container">
+        <img src="{{ptr['img']}}" alt="">
+        <ul class=" list">
+            <h5>Pros</h5>
+            {% for i in ptr['pros'] %}
+            <li>{{i}}</li>
+            {%endfor%}
+        </ul>
+        <ul class="list">
+            <h5>Cons</h5>
+            {%for i in ptr['cons'] %}
+            <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="myDiv"></div>
+    <script>
+        myVar = myVar.replaceAll('[', '').replaceAll("]", '').replaceAll("&#34;", '').split(",").slice(3)
+        console.log(myVar)
+        myVar = myVar.map(e => parseInt(e))
+        var trace1 = {
+            type: 'bar',
+            x: ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism'],
+            y: myVar,
+            marker: {
+                color: ['rgba(204,24,204,1)', 'rgba(2,5,100,0.8)', 'rgba(76,42, 105,1)', 'rgba(82, 56 ,245,1)', 'rgba(45,204,204,1)'],
+                line: {
+                    width: 2.5
+                }
+            }
+        };
+
+        let datas = [trace1];
+
+        var layout = {
+            title: 'Personality Distribution',
+            font: { size: 18 }
+        };
+
+        Plotly.newPlot('myDiv', datas, layout, { responsive: true });
+
+    </script>
+</body>
+
+</html>

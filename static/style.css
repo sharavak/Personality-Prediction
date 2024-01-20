@@ -1,0 +1,134 @@
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    min-height: 100vh;
+    background-image: url("https://i.ibb.co/SN1zkfr/24997080-7037042.jpg");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    color: rgb(9, 40, 59);
+    text-decoration: underline;
+}
+
+#form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 75vh;
+    border-color: black;
+}
+
+input[type='text'] {
+    width: 12rem;
+    font-family: cursive;
+    font-size: 1rem;
+    border: none;
+    font-weight: 100;
+    background-color: rgb(196, 195, 194);
+}
+
+label {
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+
+span {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 5rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+    background-color: cadetblue;
+    font-size: 1.2rem;
+    color: aliceblue;
+    box-shadow: 1px 1px 3px 1px black;
+}
+
+.info {
+    width: 5rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+    background-color: rgb(255, 208, 0);
+    font-size: 1.2rem;
+    color: rgb(0, 1, 2);
+    box-shadow: 1px 1px 3px 1px black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+    border: solid 1px #dff3ff;
+    margin: 1px;
+}
+
+.modal p {
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    color: rgb(255, 254, 253);
+    font-size: 1.1rem;
+}
+
+.modal .ptr span {
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 400;
+}
+
+.show {
+    position: absolute;
+    z-index: 2;
+    left: 100px;
+    right: 0px;
+    top: 14rem;
+    bottom: 200px;
+    display: block;
+}
+
+.info {
+    display: block;
+    margin: auto;
+}
+
+.modal .ptr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 40%;
+    background-color: rgb(4, 32, 58);
+    border-radius: 2%;
+    margin: auto;
+    overflow: auto;
+
+}
+
+.hide {
+    display: none;
+}
+
+button:hover {
+    background-color: rgb(1, 65, 15);
+    color: beige;
+    transform: scale(1.1);
+    transition: background-color cubic-bezier(0.165, 0.84, 0.44, 1) 2s;
+}

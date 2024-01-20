@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
+    <title>Personality Prediction</title>
+</head>
+
+<body>
+    <h1>Predict your personality with these five steps</h1>
+    <button class="info">Info</button>
+    <form action="/predict" method="post" id="form">
+        <div class="inputs">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="inputs">
+            <input type="radio" name="gender" id="gender" value="1" checked>
+            <label for="gender">Male</label>
+            <input type="radio" name="gender" id="gender" value="0">
+            <label for="gender">Female</label>
+        </div>
+        <div class="inputs">
+            <label for="age">Age</label>
+            <input type="range" name="age" id="age" min="1" max="100" value="5"><span>20</span>
+        </div>
+
+        <div class="inputs">
+            <label for="open">Openness</label>
+            <input type="range" name="open" id="open" min="1" max="10" value="5"><span>5</span>
+        </div>
+        <div class="inputs">
+            <label for="cons">Conscientiousness</label>
+            <input type="range" name="cons" id="cons" min="1" max="10" value="5"><span>5</span>
+        </div>
+        <div class="inputs">
+            <label for="extra">Extraversion</label>
+            <input type="range" name="extra" id="extra" min="1" max="10" value="5"><span>5</span>
+        </div>
+        <div class="inputs">
+            <label for="agree">Agreeableness</label>
+            <input type="range" name="agree" id="agree" min="1" max="10" value="5"><span>5</span>
+        </div>
+        <div class="inputs">
+            <label for="neuro">Neuroticism</label>
+            <input type="range" name="neuro" id="neuro" min="1" max="10" value="5"><span>5</span>
+        </div>
+        <button class="pred">Predict</button>
+    </form>
+    <div class="modal hide">
+        <div class="ptr">
+            <span>Openness</span>
+            <p>Open-minded, Imaginative, Creative and Insightful</p>
+        </div>
+        <hr>
+        <div class="ptr">
+            <span>Conscientiousness</span>
+            <p>Personality trait of being careful or diligent</p>
+        </div>
+        <hr>
+        <div class="ptr">
+            <span>Extraversion</span>
+            <p>The general tendency to experience positive emotions, as well as by traits such as sociable,
+                lively, and active</p>
+        </div>
+        <hr>
+        <div class="ptr">
+            <span>Agreeableness</span>
+            <p>Personality trait that can be described as cooperative, polite, kind, and friendly</p>
+        </div>
+        <hr>
+        <div class="ptr">
+            <span>Neuroticism</span>
+            <p>The trait disposition to experience negative affects, including anger, anxiety,
+                self‐consciousness, irritability, emotional instability, and depression</p>
+        </div>
+    </div>
+    <script>
+
+        let input = document.querySelectorAll(".inputs");
+        let modalBtn = document.querySelector(".info");
+        let modal = document.querySelector(".modal");
+        for (let i = 2; i < input.length; i++) {
+            input[i].children[1].addEventListener("input", () => {
+                input[i].children[2].textContent = input[i].children[1].value
+            })
+        }
+        let f = 0;
+        modalBtn.addEventListener("click", () => {
+            if (!f) {
+                modal.classList.remove('hide');
+                modal.classList.add('show');
+                f = 1;
+            } else {
+                f = 0;
+                modal.classList.add('hide');
+                modal.classList.remove('show');
+            }
+        })
+    </script>
+</body>
+
+</html>
