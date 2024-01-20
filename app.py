@@ -37,6 +37,3 @@ def report():
         jsonCont = jsonCont.json()
         return render_template('success.html', res=res[0], ptr=jsonCont[res[0]], data=json.dumps(data))
     return redirect("/")
-
-
-app.run(debug=True)
