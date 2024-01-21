@@ -132,3 +132,9 @@ button:hover {
     transform: scale(1.1);
     transition: background-color cubic-bezier(0.165, 0.84, 0.44, 1) 2s;
 }
+
+@media(max-width:550px) {
+    .modal {
+        right: 5rem;
+    }
+}
