@@ -90,12 +90,6 @@ hr {
 }
 
 .show {
-    position: absolute;
-    z-index: 2;
-    left: 100px;
-    right: 0px;
-    top: 14rem;
-    bottom: 200px;
     display: block;
 }
 
@@ -113,8 +107,13 @@ hr {
 .modal {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    max-width: 40%;
+    position: absolute;
+    z-index: 2;
+    left: 100px;
+    right: 0px;
+    top: 14rem;
+    bottom: 200px;
+    width: 80%;
     background-color: rgb(4, 32, 58);
     border-radius: 2%;
     margin: auto;
@@ -136,5 +135,19 @@ button:hover {
 @media(max-width:550px) {
     .modal {
         right: 5rem;
+        width: 100%;
+        max-width: 60%;
+    }
+}
+
+@media(max-width:400px) {
+    label {
+        font-size: 1.225rem;
+    }
+}
+
+@media(max-width:350px) {
+    label {
+        font-size: 0.8rem;
     }
 }
